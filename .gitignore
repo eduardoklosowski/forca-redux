@@ -1,0 +1,6 @@
+# Env
+/node_modules/
+npm-debug.log
+
+# App
+/dist/

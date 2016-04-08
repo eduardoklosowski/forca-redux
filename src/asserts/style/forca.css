@@ -1,0 +1,61 @@
+html,
+body,
+#app,
+.app {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: sans;
+  font-size: 16px;
+  text-align: center;
+  color: #333333;
+}
+
+form,
+ul {
+  margin: 1rem 0;
+}
+
+button,
+input {
+  height: 1rem;
+  box-sizing: content-box;
+  border: 1px solid #aaaaaa;
+  margin: 0.5rem;
+  padding: 0.5rem;
+}
+
+button {
+  background-color: #cccccc;
+  font-weight: bold;
+}
+
+.palavra li,
+.letras li {
+  display: inline-block;
+  width: 2rem;
+  border: 1px solid #aaaaaa;
+  margin: 0 0.5rem;
+  padding: 0.5rem;
+  font-size: 2rem;
+}
+
+.palavra .faltou {
+  color: #aaaaaa;
+}
+
+.letras .title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.letras .certa {
+  color: #00aa00;
+}
+
+.letras .errada {
+  color: #aa0000;
+}
