@@ -5,12 +5,18 @@ const initialState = {
   faltando: 0,
 };
 
+const lengthWithoutSpaces = (palavra) => (
+  palavra.replace(/\s+/g, '').length
+);
+
 const calcFaltando = (palavra, letras) => {
   let faltando = palavra.length;
   let i;
+  let letra;
 
   for (i = palavra.length; i--;) {
-    if (letras.indexOf(palavra[i]) >= 0) {
+    letra = palavra[i];
+    if (letra === ' ' || letras.indexOf(letra) >= 0) {
       --faltando;
     }
   }
@@ -22,11 +28,11 @@ const calcFaltando = (palavra, letras) => {
 // Actions
 
 const setPalavra = (action) => {
-  const palavra = action.palavra.trim().toLowerCase();
+  const palavra = action.palavra.trim().toLowerCase().replace(/\s+/g, ' ');
 
   return Object.assign({}, initialState, {
     palavra,
-    faltando: palavra.length,
+    faltando: lengthWithoutSpaces(palavra),
   });
 };
 

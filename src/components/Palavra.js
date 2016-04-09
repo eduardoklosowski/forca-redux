@@ -15,6 +15,9 @@ const Palavra = ({ vidas, palavra, letras }) => (
   <div className="palavra">
     <ul>
       {palavraToArray(palavra).map((l, i) => {
+        if (l === ' ') {
+          return <li key={i} className="espaco">&nbsp;</li>;
+        }
         const acertada = letras.indexOf(l) >= 0;
         return (
           <li key={i} className={(!acertada && !vidas) ? 'faltou' : ''}>

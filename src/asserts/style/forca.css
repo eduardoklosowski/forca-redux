@@ -43,6 +43,10 @@ button {
   font-size: 2rem;
 }
 
+.palavra .espaco {
+  border: 0;
+}
+
 .palavra .faltou {
   color: #aaaaaa;
 }
