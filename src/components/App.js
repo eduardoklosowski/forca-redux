@@ -10,19 +10,20 @@ const mapStateToProps = (state) => ({
   completo: state.forca.faltando === 0,
   vidas: state.forca.vidas,
   palavra: state.forca.palavra,
+  palavraLimpa: state.forca.palavraLimpa,
   letras: state.forca.letras,
 });
 
-let App = ({ completo, vidas, palavra, letras }) => {
+let App = ({ completo, vidas, palavra, palavraLimpa, letras }) => {
   let conteudo = '';
 
   if (palavra) {
     conteudo = (
       <div>
         <Forca vidas={vidas} completo={completo} />
-        <Palavra vidas={vidas} palavra={palavra} letras={letras} />
+        <Palavra vidas={vidas} palavra={palavra} palavraLimpa={palavraLimpa} letras={letras} />
         {(!completo && vidas) ? <LetraInput /> : ''}
-        <Letras palavra={palavra} letras={letras} />
+        <Letras palavraLimpa={palavraLimpa} letras={letras} />
       </div>
     );
   }
@@ -38,6 +39,7 @@ App.propTypes = {
   completo: PropTypes.bool.isRequired,
   vidas: PropTypes.number.isRequired,
   palavra: PropTypes.string,
+  palavraLimpa: PropTypes.string,
   letras: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 

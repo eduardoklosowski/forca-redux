@@ -11,17 +11,17 @@ const palavraToArray = (str) => {
   return array;
 };
 
-const Palavra = ({ vidas, palavra, letras }) => (
+const Palavra = ({ vidas, palavra, palavraLimpa, letras }) => (
   <div className="palavra">
     <ul>
-      {palavraToArray(palavra).map((l, i) => {
+      {palavraToArray(palavraLimpa).map((l, i) => {
         if (l === ' ') {
           return <li key={i} className="espaco">&nbsp;</li>;
         }
         const acertada = letras.indexOf(l) >= 0;
         return (
           <li key={i} className={(!acertada && !vidas) ? 'faltou' : ''}>
-            {(acertada || !vidas) ? l : '_'}
+            {(acertada || !vidas) ? palavra.charAt(i) : '_'}
           </li>
         );
       })}
@@ -31,6 +31,7 @@ const Palavra = ({ vidas, palavra, letras }) => (
 Palavra.propTypes = {
   vidas: PropTypes.number.isRequired,
   palavra: PropTypes.string.isRequired,
+  palavraLimpa: PropTypes.string.isRequired,
   letras: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
